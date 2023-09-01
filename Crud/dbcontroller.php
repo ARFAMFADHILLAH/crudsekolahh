@@ -1,15 +1,14 @@
 <?php
-//class dbController
+
 class dbController
 {
-    //Property private
     private $host = 'localhost';
     private $user = 'root';
     private $password = '';
-    private $database = 'sekolah';
+    private $databases = 'sekolah';
     private $koneksi;
 
-    //contruct
+    //construct
     public function __construct()
     {
         $this->koneksi = $this->koneksiDB();
@@ -18,7 +17,12 @@ class dbController
     //method koneksiDB
     public function koneksiDB()
     {
-        $koneksi = mysqli_connect($this->host, $this->user, $this->password, $this->database);
+        $koneksi = mysqli_connect(
+            $this->host,
+            $this->user,
+            $this->password,
+            $this->databases
+        );
         return $koneksi;
     }
 
